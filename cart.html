@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your Cart - Handmade Crochet Hub</title>
+<style>
+body { font-family: Arial; background: #f7f7f7; padding: 20px; }
+h2 { text-align: center; }
+
+.cart-item {
+    background: white;
+    padding: 15px;
+    margin: 15px auto;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ccc;
+}
+.price { 
+    font-size: 18px; 
+    color: #ff127c; 
+    font-weight: bold; 
+}
+button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #ff127c;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Your Cart 🧺</h2>
+<div id="cart"></div>
+
+<script>
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let container = document.getElementById("cart");
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        container.innerHTML += `
+            <div class="cart-item">
+                <h3>${item.name}</h3>
+                <p class="price">₹${item.price}</p>
+
+                <button onclick="order('${item.name}', '${item.price}')">
+                    Order on WhatsApp
+                </button>
+
+                <button style="background:red;" onclick="removeItem(${index})">
+                    Remove
+                </button>
+            </div>
+        `;
+    });
+}
+
+function order(name, price) {
+    let text = `I want to order: ${name} - Price ₹${price}`;
+    window.location.href = "https://wa.me/91-9606743264?text=" + encodeURIComponent(text);
+}
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+}
+
+loadCart();
+</script>
+
+</body>
+</html>
