@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Cash On Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 450px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #b30059;
+        }
+        .cod-box {
+            border: 2px solid #b30059;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .cod-box h3 {
+            margin: 0;
+            color: #b30059;
+        }
+        .btn {
+            padding: 12px;
+            background: #b30059;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #8a0045;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Payment Method</h2>
+
+    <div class="cod-box">
+        <h3>Cash On Delivery (COD)</h3>
+        <p>Pay when you receive your handmade crochet product.</p>
+    </div>
+
+    <h3>Delivery Details</h3>
+
+    <form action="#" onsubmit="alert('Order Placed Successfully! COD selected.');">
+
+        <label>Name</label>
+        <input type="text" required>
+
+        <label>Phone Number</label>
+        <input type="number" required>
+
+        <label>Address</label>
+        <textarea rows="3" required></textarea>
+
+        <label>Pincode</label>
+        <input type="number" required>
+
+        <a href="#" class="btn" onclick="alert('Order Confirmed! Your product will be delivered soon.');">
+            Confirm Order (COD)
+        </a>
+
+    </form>
+</div>
+
+</body>
+</html>
